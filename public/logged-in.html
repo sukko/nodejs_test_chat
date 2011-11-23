@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Logged In</title>
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="css/frame/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="css/frame/print.css" type="text/css" media="print" />
+    <!-- Site Specific CSS -->
+    <link rel="stylesheet" href="css/theme.css" type="text/css" media="screen, projection" />
+    <!--[if IE]><link rel="stylesheet" href="css/frame/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    <script language="javascript" type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/ddsmoothmenu.js"></script>
+    <script language="javascript" type="text/javascript" src="js/tabs.js"></script>
+    <script type="text/javascript" src="markitup/jquery.markitup.pack.js"></script>
+    <script type="text/javascript" src="markitup/sets/default/set.js"></script>
+    <script type="text/javascript" src="facebox/facebox.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="markitup/skins/simple/style.css" />
+    <link rel="stylesheet" type="text/css" href="markitup/sets/default/style.css" />
+    <link rel="stylesheet" type="text/css" href="facebox/facebox.css" />
+    
+    <script type="text/javascript">
+	<!--
+	$(document).ready(function()	{
+		// Add markItUp! to your textarea in one line
+		// $('textarea').markItUp( { Settings }, { OptionalExtraSettings } );
+		$('.markItUp').markItUp(mySettings);
+		
+		// You can add content from anywhere in your page
+		// $.markItUp( { Settings } );	
+		$('.add').click(function() {
+			$.markItUp( { 	openWith:'<opening tag>',
+							closeWith:'<\/closing tag>',
+							placeHolder:"New content"
+						}
+					);
+			return false;
+		});
+		
+		// And you can add/remove markItUp! whenever you want
+		// $(textarea).markItUpRemove();
+		$('.toggle').click(function() {
+			if ($(".markItUp.markItUpEditor").length === 1) {
+				$(".markItUp").markItUpRemove();
+				$("span", this).text("get markItUp! back");
+			} else {
+				$('.markItUp').markItUp(mySettings);
+				$("span", this).text("remove markItUp!");
+			}
+			return false;
+		});
+	});
+	-->
+	</script>
+
+    <script type="text/javascript" id="js">$(document).ready(function() {
+		// call the tablesorter plugin
+		$("table").tablesorter({
+			// sort on the first column and third column, order asc
+			sortList: [[0,0]]
+		});
+	}); </script>
+    
+    <script type="text/javascript">
+
+		ddsmoothmenu.init({
+			mainmenuid: "smoothmenu1", //menu DIV id
+			orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+			classname: 'ddsmoothmenu', //class added to menu's outer DIV
+			contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+		})
+		
+	</script>
+    
+    <script language="javascript" type="text/javascript">
+
+		$(document).ready(function(){
+		$(".sidebar li img").fadeTo("fast", 0.6); // This sets the opacity of the thumbs to fade down to 60% when the page loads
+		
+		$(".sidebar li img").hover(function(){
+		$(this).fadeTo("fast", 1.0); // This should set the opacity to 100% on hover
+		},function(){
+		$(this).fadeTo("fast", 0.6); // This should set the opacity back to 60% on mouseout
+		});
+		$("tr:nth-child(even)").addClass("even");
+		$('a[rel*=facebox]').facebox() 
+		});
+	
+	</script>
+
+    
+    <!--[if lt IE 9]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE9.js"></script>
+    <![endif]-->
+    
+</head>
+<body>
+<div class="headwrap">
+	<div class="container_12 header">
+        <div class="grid_8 logo">
+        	<h1>Site Name</h1>
+            <p class="viewsite"><a href="#">View Site</a></p>
+        </div><!--/logo-->
+        <div class="grid_4 last h-details">
+        	<div class="logged-in">
+            	<a href="#" class="logout">Logout</a>
+                Logged in as <a href="#">Username</a>
+            </div><!--/logged-in-->
+        </div><!--/hdetails-->
+        <div class="container_12 nav">
+        	<div id="smoothmenu1" class="ddsmoothmenu">
+                <ul>
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Folder 0</a>
+                  <ul>
+                  <li><a href="#">Sub Item 1.1</a></li>
+                  <li><a href="#">Sub Item 1.2</a></li>
+                  <li><a href="#">Sub Item 1.3</a></li>
+                  <li><a href="#">Sub Item 1.4</a></li>
+                  <li><a href="#">Sub Item 1.2</a></li>
+                  <li><a href="#">Sub Item 1.3</a></li>
+                  <li><a href="#">Sub Item 1.4</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Folder 1</a>
+                  <ul>
+                  <li><a href="#">Sub Item 1.1</a></li>
+                  <li><a href="#">Sub Item 1.2</a></li>
+                  <li><a href="#">Sub Item 1.3</a></li>
+                  <li><a href="#">Sub Item 1.4</a></li>
+                  <li><a href="#">Sub Item 1.2</a></li>
+                  <li><a href="#">Sub Item 1.3</a></li>
+                  <li><a href="#">Sub Item 1.4</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Folder 2</a>
+                  <ul>
+                  <li><a href="#">Sub Item 2.1</a></li>
+                  <li><a href="#">Folder 2.1</a>
+                    <ul>
+                    <li><a href="#">Sub Item 2.1.1</a></li>
+                    <li><a href="#">Sub Item 2.1.2</a></li>
+                    <li><a href="#">Folder 3.1.1</a>
+                        <ul>
+                            <li><a href="#">Sub Item 3.1.1.1</a></li>
+                            <li><a href="#">Sub Item 3.1.1.2</a></li>
+                            <li><a href="#">Sub Item 3.1.1.3</a></li>
+                            <li><a href="#">Sub Item 3.1.1.4</a></li>
+                            <li><a href="#">Sub Item 3.1.1.5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Sub Item 2.1.4</a></li>
+                    </ul>
+                  </li>
+                  </ul>
+                </li>
+                <li><a href="#">Item 4</a></li>
+                </ul>
+                <br style="clear: left" />
+          	</div>
+        </div><!--/nav-->
+    </div><!--/header-->
+</div><!--/headwrap-->
+<div class="main">
+    <div class="container_12">
+    	<div class="grid_12">
+        	<div class="welcome">
+            	<div class="grid_5 alpha">
+                    <h2><span>Welcome Back</span> Username</h2>
+                </div>
+                <div class="grid_7 omega">
+                	<p>We've not seen you around here since 27th March 2010<br /> <strong>What would you like to do?</strong> <a href="#quickedit" rel="facebox">Open a Modal</a></p>
+                </div>
+            </div><!--/welcome-->
+            <ul class="toolbar">
+            	<li class="grid_2 alpha">
+                	<a href="#quickedit" rel="facebox">
+                        <img src="images/icons/toolbar-1-trans.png" alt="Button Name" />
+                        <span>Button Name</span>
+                    </a>
+                    <div id="quickedit" style="display:none;">
+                    	<h3>Here's a modal</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
+                    </div>
+                </li>
+                <li class="grid_2">
+                	<a href="#">
+                        <img src="images/icons/toolbar-2-trans.png" alt="Button Name" />
+                        <span>Button Name</span>
+                    </a>
+                </li>
+                <li class="grid_2">
+                	<a href="#">
+                        <img src="images/icons/toolbar-3-trans.png" alt="Button Name" />
+                        <span>Button Name</span>
+                    </a>
+                </li>
+                <li class="grid_2">
+                	<a href="#">
+                        <img src="images/icons/toolbar-4-trans.png" alt="Button Name" />
+                        <span>Button Name</span>
+                    </a>
+                </li>
+                
+                <li class="grid_2">
+                	<a href="#">
+                        <img src="images/icons/toolbar-5-trans.png" alt="Button Name" />
+                        <span>Button Name</span>
+                    </a>
+                </li>
+                <li class="grid_2 omega">
+                	<a href="#">
+                        <img src="images/icons/toolbar-6-trans.png" alt="Button Name" />
+                        <span>Button Name</span>
+                    </a>
+                </li>
+            </ul><!--/toolbar-->
+            <div class="grid_3 sidebar alpha">
+            		<div class="content-box">
+                    	<div class="content-header">
+                        	<h3>Side Content</h3>
+                        </div><!--/content-header-->
+                    	<h4>Recent Posts</h4>
+                        <ul>
+                        	<li>
+                                <a href="#" class="delete"><img src="images/icons/delete-trans.png" alt="delete" /></a>
+                                <a href="#" class="edit"><img src="images/icons/edit-trans.png" alt="edit" /></a>
+                                <a href="#">Post title goes right here</a>
+                            </li>
+                            <li>
+                                <a href="#" class="delete"><img src="images/icons/delete-trans.png" alt="delete" /></a>
+                                <a href="#" class="edit"><img src="images/icons/edit-trans.png" alt="edit" /></a>
+                                <a href="#">Post title goes right here</a>
+                            </li>
+                            <li>
+                                <a href="#" class="delete"><img src="images/icons/delete-trans.png" alt="delete" /></a>
+                                <a href="#" class="edit"><img src="images/icons/edit-trans.png" alt="edit" /></a>
+                                <a href="#">Post title goes right here</a>
+                            </li>
+                            <li>
+                                <a href="#" class="delete"><img src="images/icons/delete-trans.png" alt="delete" /></a>
+                                <a href="#" class="edit"><img src="images/icons/edit-trans.png" alt="edit" /></a>
+                                <a href="#">Post title goes right here</a>
+                            </li>
+                            <li>
+                                <a href="#" class="delete"><img src="images/icons/delete-trans.png" alt="delete" /></a>
+                                <a href="#" class="edit"><img src="images/icons/edit-trans.png" alt="edit" /></a>
+                                <a href="#">Post title goes right here</a>
+                            </li>
+                        </ul>
+                        <h4>Recent Comments</h4>
+                        <ul>
+                        	<li>
+                                <a href="#" class="delete"><img src="images/icons/delete-trans.png" alt="delete" /></a>
+                                <a href="#" class="edit"><img src="images/icons/edit-trans.png" alt="edit" /></a>
+                                <a href="#">Comment goes right here</a>
+                            </li>
+                            <li>
+                                <a href="#" class="delete"><img src="images/icons/delete-trans.png" alt="delete" /></a>
+                                <a href="#" class="edit"><img src="images/icons/edit-trans.png" alt="edit" /></a>
+                                <a href="#">Comment goes right here</a>
+                            </li>
+                            <li>
+                                <a href="#" class="delete"><img src="images/icons/delete-trans.png" alt="delete" /></a>
+                                <a href="#" class="edit"><img src="images/icons/edit-trans.png" alt="edit" /></a>
+                                <a href="#">Comment goes right here</a>
+                            </li>
+                            <li>
+                                <a href="#" class="delete"><img src="images/icons/delete-trans.png" alt="delete" /></a>
+                                <a href="#" class="edit"><img src="images/icons/edit-trans.png" alt="edit" /></a>
+                                <a href="#">Comment goes right here</a>
+                            </li>
+                            <li>
+                                <a href="#" class="delete"><img src="images/icons/delete-trans.png" alt="delete" /></a>
+                                <a href="#" class="edit"><img src="images/icons/edit-trans.png" alt="edit" /></a>
+                                <a href="#">Comment goes right here</a>
+                            </li>
+                        </ul>
+                    </div><!--/content-box-->
+                    <ul class="tabs">
+                        <li><a href="#tab1">Tab 1</a></li>
+                        <li><a href="#tab2">Tab 2</a></li>
+                        <li><a href="#tab3">Tab 3</a></li>
+                    </ul>
+                    <div class="tab_container">
+                        <div id="tab1" class="tab_content">
+                            <h4>Tab</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
+                        </div><!--/tab1-->
+                        <div id="tab2" class="tab_content">
+                            <h4>Tab</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
+                        </div><!--/tab2-->
+                        <div id="tab3" class="tab_content">
+                            <h4>Tab</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
+                        </div><!--/tab3-->
+                    </div><!--/tab_container-->
+            
+            </div><!--/sidebar-->
+            <div class="grid_9 content omega">
+            	<div class="content-box">
+                	<div class="content-header">
+                    	<h3>Main Content box</h3>
+                    </div>
+                        <table class="tablesorter" cellspacing="1">             
+                            <thead> 
+                                <tr> 
+                                    <th><span>first name</span></th> 
+                                    <th><span>last name</span></th> 
+                                    <th><span>age</span></th> 
+                                    <th><span>total</span></th> 
+                                    <th><span>discount</span></th> 
+                                </tr> 
+                            </thead> 
+                            <tbody> 
+                                <tr> 
+                                    <td>peter</td> 
+                                    <td>parker</td> 
+                                    <td>28</td> 
+                                    <td>$9.99</td> 
+                                    <td>20%</td> 
+                                </tr> 
+                                <tr> 
+                                    <td>john</td> 
+                                    <td>hood</td> 
+                                    <td>33</td> 
+                                    <td>$19.99</td> 
+                                    <td>25%</td> 
+                                </tr> 
+                                <tr> 
+                                    <td>clark</td> 
+                                    <td>kent</td> 
+                                    <td>18</td> 
+                                    <td>$15.89</td> 
+                                    <td>44%</td> 
+                                </tr> 
+                                <tr> 
+                                    <td>bruce</td> 
+                                    <td>almighty</td> 
+                                    <td>45</td> 
+                                    <td>$153.19</td> 
+                                    <td>44%</td> 
+                                </tr> 
+                                <tr> 
+                                    <td>bruce</td> 
+                                    <td>evans</td> 
+                                    <td>22</td> 
+                                    <td>$13.19</td> 
+                                    <td>11%</td> 
+                                </tr> 
+                            </tbody> 
+                        </table>
+                        <div class="notice">
+                        	Alert! This is a yellow box
+                        </div>
+                        <div class="error">
+                        	Here's an error message
+                        </div>
+                        <div class="success">
+                        	Settings saved.
+                        </div>
+                        <form action="#" method="post">
+                        	<fieldset>
+                            <legend>Example Form</legend>
+                            <div>
+                                 <label for="name">Text Input:</label>
+                                 <input type="text" name="name" id="name" value="" tabindex="1" />
+                            </div>
+                            <div>
+                                 <label for="radio-choice-1">Choice 1</label>
+                                 <input type="radio" name="radio-choice-1" id="radio-choice-1" tabindex="2" value="choice-1" />
+                                 <label for="radio-choice-2">Choice 2</label>
+                                 <input type="radio" name="radio-choice-2" id="radio-choice-2" tabindex="3" value="choice-2" />
+                            </div>
+                            <div>
+                                <label for="select-choice">Select Dropdown Choice:</label>
+                                <select name="select-choice" id="select-choice">
+                                    <option value="Choice 1">Choice 1</option>
+                                    <option value="Choice 2">Choice 2</option>
+                                    <option value="Choice 3">Choice 3</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="textarea">Textarea:</label>
+                                <textarea cols="40" rows="8" name="textarea" class="markItUp"></textarea>
+                            </div>
+                            <div>
+                                <label for="checkbox">Checkbox:</label>
+                                <input type="checkbox" name="checkbox" id="checkbox" />
+                            </div>
+                            <div>
+                                <button class="button" title="" type="button"><span><span>Submit</span></span></button>
+                                <button class="button-yellow" title="" type="button"><span><span>Submit</span></span></button>
+                            </div>
+                            </fieldset>
+                        </form>
+                        <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+                        <h2>Header Level 2</h2>
+                        <ol>
+                           <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                           <li>Aliquam tincidunt mauris eu risus.</li>
+                        </ol>
+                        <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+                        <h3>Header Level 3</h3>
+                        <ul>
+                           <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                           <li>Aliquam tincidunt mauris eu risus.</li>
+                        </ul>
+                        <pre><code>
+                        #header h1 a { 
+                            display: block; 
+                            width: 300px; 
+                            height: 80px; 
+                        }
+                        </code></pre>
+                </div><!--/content-box-->
+            </div><!--/content-->
+    	</div><!--/grid-12-->
+        <div class="clear"></div>
+    </div><!--/container-->
+</div><!--/main-->
+<div class="container_12 footer">
+    <div class="grid_10 alpha">
+    	<p>Any copyright information can go in here</p>
+    </div>
+    <div class="grid_2 omega">
+    	<a href="http://www.guitemplates.com" title="GUI Templates"><img src="images/logos/gui.png" alt="GUITemplates" /></a>
+    </div>
+</div><!--/footer-->
+</body>
+</html>

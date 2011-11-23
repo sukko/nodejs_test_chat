@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>커뮤니티 개발2팀 채팅방</title>
+    
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="css/frame/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="css/frame/print.css" type="text/css" media="print" />
+    
+    <!-- Site Specific CSS -->
+    <link rel="stylesheet" href="css/theme.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" type="text/css" href="markitup/skins/simple/style.css" />
+    <link rel="stylesheet" type="text/css" href="markitup/sets/default/style.css" />
+    <link rel="stylesheet" type="text/css" href="facebox/facebox.css" />
+    <!--[if IE]><link rel="stylesheet" href="css/frame/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <!-- default js -->
+    <script language="javascript" type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    
+    <!-- nodejs js -->
+	<script language="javascript" type="text/javascript" src="/nowjs/now.js"></script>    
+
+    <script language="javascript" type="text/javascript">
+		
+		function getParam(name) {
+			name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+			var regexS = "[\\?&]"+name+"=([^&#]*)";
+			var regex = new RegExp( regexS );
+			var results = regex.exec( window.location.href );
+			if( results == null ) {
+				return "";
+			} else {
+				return results[1];
+			}
+		}
+		
+		var nickname = decodeURIComponent(getParam("nickname"));
+		if ( nickname == "" ) {
+			nickname = "빵구똥꾸";
+		}
+		
+		$(document).ready(function() {
+		  $("#text-input").keyup(function(event){
+		      if ( event.keyCode == 13 ) {
+		    	  sendMessage();
+		      }
+		  });	  
+		  
+		});		
+		
+		$(document).ready(function(){
+			now.receiveMessage = function(name, message){
+				$("#messages").append("<br>" + name + ": " + message);
+				document.getElementById("chatArea1").scrollTop = document.getElementById("chatArea2").scrollHeight;
+			}
+		
+			$("#send-button").click(function(){
+				sendMessage();
+			});
+
+			now.name = nickname;
+		
+			now.ready(function(){
+				setServerRoomFromList(now.serverRoomsList);
+				now.changeRoom($('#server-room').val());
+				$("#send-button").removeAttr('disabled');
+			});
+			
+			$('#server-room').change(function(){
+				$("#messages").html('');
+				now.changeRoom($('#server-room').val());
+			});
+		
+		});
+		
+		function sendMessage() {
+			now.distributeMessage($("#text-input").val());
+			$("#text-input").val("");
+		}
+		
+		function setServerRoomFromList(roomList){
+			$('#server-room').empty();
+			$.each(roomList, function(key, value)
+			{   
+			     $('#server-room').
+			          append($("<option></option>").
+			          attr("value",key).
+			          text(value)); 
+			});
+		}		
+		
+	</script>
+    <!--[if lt IE 9]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE9.js"></script>
+    <![endif]-->
+</head>
+<body class="login">
+<div class="container_12">
+	<div class="grid_6 prefix_3 suffix_3">
+    	<div class="main login" style="width:auto; padding:20px;">
+        	<div class="content-box">
+            	<div class="content-header">
+                	<h3>커뮤니티 개발2팀 채팅방</h3>
+                </div>        	
+                
+				<div id="chatArea1" style="height:240px; overflow: auto;">
+					<div id="chatArea2" >
+						<span id="messages"></span><br/>
+					</div>
+				</div>                
+                
+				<input type="text" id="text-input" style="width:190px;" />
+				<input type="submit" value="Send" disabled id="send-button" />
+				<select id="server-room">
+					<option value="connecting" selected>접속중...</option>	
+				</select>        	
+
+                <div class="clear"></div>
+            </div>
+    	</div>
+    </div>
+</div>
+</body>
+</html>
